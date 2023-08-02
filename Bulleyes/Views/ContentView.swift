@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isAlertVisisble:Bool=false
+    @State private var isAlertVisisble=false
     // binding
-    @State private var sliderValue:Double=50.0
+    @State private var sliderValue=50.0
     @State private var game: Game = Game()
     var body: some View {
        
@@ -41,10 +41,10 @@ struct ContentView: View {
                         }
                     },
                 message:{
-                    let sliderInt:Int=Int(sliderValue)
+                    let roundedSlider=Int(sliderValue)
                 Text("""
-            The Slider Value is  \(sliderInt).
-            Your score is \(game.points(sliderValue: sliderInt)) points
+            The Slider Value is  \(roundedSlider).
+            Your score is \(game.points(sliderValue: roundedSlider)) points
 """)
                 }
 )
