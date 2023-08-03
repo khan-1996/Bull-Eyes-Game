@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isAlertVisisble=false
+    @State  var isAlertVisisble=false
     // binding
-    @State private var sliderValue=50.0
-    @State private var game: Game = Game()
+    @State  var sliderValue=50.0
+    @State  var game=Game()
+  
     var body: some View {
        
         ZStack {
@@ -19,39 +20,9 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack {
                 instructionView(game: $game)
-                
-                HStack{
-                    Text("0").bold().font(.system(size: 20.0))
-                    Slider(value: $sliderValue, in:1.0...100.0)
-                    Text("100").bold().font(.system(size: 20.0))
-                }.padding()
-                Button("Hit Me".uppercased()) {
-                    isAlertVisisble=true
-                }.padding(20.0)
-                    .background(Color("ButtonColor"))
-                .foregroundColor(Color.white)
-                .cornerRadius(21.0)
-                .bold()
-                .font(.title3)
-                
-    
-                
-                .alert(
-                    "Hello, there",
-                    isPresented: $isAlertVisisble,
-                        actions: {
-                            Button("Awsome"){
-                                
-                            }
-                        },
-                    message:{
-                        let roundedSlider=Int(sliderValue)
-                    Text("""
-                The Slider Value is  \(roundedSlider).
-                Your score is \(game.points(sliderValue: roundedSlider)) points
-    """).foregroundColor(Color("textViewColor"))
-                    }
-    )
+                sliderView(sliderValue: $sliderValue)
+                hitMeButton(isAlertVisisble: $isAlertVisisble, sliderValue: $sliderValue, game: $game)
+             
             }
         }
        
@@ -69,7 +40,61 @@ struct instructionView:View{
             
         }
     }
+}
+
+    struct sliderView:View{
+        @Binding var sliderValue:Double
+        var body: some View{
+            
+            HStack{
+                SliderLableText(text: "1")
+                
+                Slider(value: $sliderValue, in:1.0...100.0)
+                
+                SliderLableText(text: "100")
+                
+            }.padding()
+        }
+    }
     
+struct hitMeButton:View{
+    @Binding  var isAlertVisisble:Bool
+    // binding
+    @Binding  var sliderValue:Double
+    @Binding  var game: Game
+    
+    var body: some View{
+        
+        Button("Hit Me".uppercased()) {
+            isAlertVisisble=true
+        }.padding(20.0)
+            .background(Color("ButtonColor"))
+        .foregroundColor(Color.white)
+        .cornerRadius(21.0)
+        .bold()
+        .font(.title3)
+        
+
+        
+        .alert(
+            "Hello, there",
+            isPresented: $isAlertVisisble,
+                actions: {
+                    Button("Awsome"){
+                        
+                    }
+                },
+            message:{
+                let roundedSlider=Int(sliderValue)
+            Text("""
+        The Slider Value is  \(roundedSlider).
+        Your score is \(game.points(sliderValue: roundedSlider)) points
+""").foregroundColor(Color("textViewColor"))
+            }
+)
+    }
+}
+
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
@@ -78,4 +103,4 @@ struct instructionView:View{
                 .preferredColorScheme(.dark)
         }
     }
-}
+

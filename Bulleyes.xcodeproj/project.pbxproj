@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C96267DE2A7C39FC00CA3F2B /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96267DD2A7C39FB00CA3F2B /* TextViews.swift */; };
+		C96267E02A7C4A1800CA3F2B /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96267DF2A7C4A1700CA3F2B /* SliderView.swift */; };
 		C9647EF72A7909CE003402F3 /* BulleyesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9647EF62A7909CE003402F3 /* BulleyesApp.swift */; };
 		C9647EF92A7909CE003402F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9647EF82A7909CE003402F3 /* ContentView.swift */; };
 		C9647EFB2A7909CF003402F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9647EFA2A7909CF003402F3 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		C96267DD2A7C39FB00CA3F2B /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		C96267DF2A7C4A1700CA3F2B /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		C9647EF32A7909CE003402F3 /* Bulleyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulleyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9647EF62A7909CE003402F3 /* BulleyesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulleyesApp.swift; sourceTree = "<group>"; };
 		C9647EF82A7909CE003402F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				C9647EF82A7909CE003402F3 /* ContentView.swift */,
 				C96267DD2A7C39FB00CA3F2B /* TextViews.swift */,
+				C96267DF2A7C4A1700CA3F2B /* SliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				C96267DE2A7C39FC00CA3F2B /* TextViews.swift in Sources */,
 				C9647F082A7A25A1003402F3 /* Game.swift in Sources */,
 				C9647EF72A7909CE003402F3 /* BulleyesApp.swift in Sources */,
+				C96267E02A7C4A1800CA3F2B /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
