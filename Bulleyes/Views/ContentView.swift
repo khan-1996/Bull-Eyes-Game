@@ -18,17 +18,7 @@ struct ContentView: View {
             Color("BackgroundColor")
                 .ignoresSafeArea()
             VStack {
-                Text("🎯🎯🎯\nTHIS IS A FUNNY GAME YOU")
-                    .bold().multilineTextAlignment(.center)
-                    .font(.body)
-                    .lineSpacing(10.0)
-                    .kerning(2.0)
-                    .padding(.horizontal,30)
-                    .foregroundColor(Color("textViewColor"))
-                
-                Text(String(game.target)).bold().font(.system(size: 36.0))
-                    .kerning(-1)
-                    .foregroundColor(Color("textViewColor"))
+                instructionView(game: $game)
                 
                 HStack{
                     Text("0").bold().font(.system(size: 20.0))
@@ -44,8 +34,7 @@ struct ContentView: View {
                 .bold()
                 .font(.title3)
                 
-                    
-                
+    
                 
                 .alert(
                     "Hello, there",
@@ -69,11 +58,24 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        ContentView()
-            .previewDevice("iPhone 14 Pro Max")
-            .preferredColorScheme(.dark)
+struct instructionView:View{
+    @Binding var game:Game
+    var body: some View{
+        
+        VStack{
+            InstructionView(text: "🎯🎯🎯\n THIS IS A FUNNY GAME FOR YOU").padding(.horizontal,30)
+            
+            BigNumberText(bigText: String(game.target))
+            
+        }
+    }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+            ContentView()
+                .previewDevice("iPhone 14 Pro Max")
+                .preferredColorScheme(.dark)
+        }
     }
 }
