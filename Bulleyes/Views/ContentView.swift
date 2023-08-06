@@ -20,10 +20,12 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack {
                 instructionView(game: $game)
-                sliderView(sliderValue: $sliderValue)
+                    .padding(.bottom,100)
+               
                 hitMeButton(isAlertVisisble: $isAlertVisisble, sliderValue: $sliderValue, game: $game)
                 
             }
+            sliderView(sliderValue: $sliderValue)
         }
         
     }
@@ -63,8 +65,11 @@ struct hitMeButton:View{
     
     var body: some View{
         
-        Button("Hit Me".uppercased()) {
+        Button("Hit Me".uppercased())
+        
+        {
             isAlertVisisble=true
+            
         }.padding(20.0)
             .background(Color("ButtonColor"))
             .overlay(
@@ -83,7 +88,7 @@ struct hitMeButton:View{
                 isPresented: $isAlertVisisble,
                 actions: {
                     Button("Awsome"){
-                        
+                        game.startNewRound(points: game.points(sliderValue: Int(sliderValue)))
                     }
                 },
                 message:{
